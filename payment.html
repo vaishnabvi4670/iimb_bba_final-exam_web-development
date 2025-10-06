@@ -31,7 +31,20 @@
     <h1>Pay via UPI</h1>
     <p>Scan the QR code below to make a payment:</p>
     <img src="qr.jpg" alt="qr" class="center-image" />
-
+     <div id="totalDisplay" style="
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 40px auto 20px;
+  padding: 10px;
+  background-color: #fff0f5;
+  border-top: 2px dashed #ffb6c1;
+  border-bottom: 2px dashed #ffb6c1;
+  width: fit-content;
+  border-radius: 10px;
+  font-family: 'Comic Sans MS', cursive;
+">
+  <!-- Total will appear here -->
+</div>
 
 </body><script> // 🎀 Bottom buttons
   const buttonContainer = document.createElement('div');
@@ -56,10 +69,20 @@ homeButton.onclick = () => {
 };
   buttonContainer.appendChild(homeButton);
   document.body.appendChild(buttonContainer);
-  
-
-
 
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const total = localStorage.getItem("cartTotal");
+    const totalDisplay = document.getElementById("totalDisplay");
 
+    if (total) {
+      totalDisplay.textContent = `Total Amount to Pay: ₹${total}`;
+        totalDisplay.insertAdjacentHTML("beforeend", "<p style='font-size: 1rem; color: #666;'>Your handmade treasures await. Let’s complete the journey.</p>");
+    } else {
+      totalDisplay.textContent = "No cart total found.";
+    }
+  });
+</script>
 </html>
+

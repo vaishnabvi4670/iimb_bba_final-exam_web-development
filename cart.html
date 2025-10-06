@@ -1,150 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart – Itty Bitty Studios</title>
-  <style>
-    body {
-      background-color: #ffe4e1;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      margin: 0;
-      padding-bottom: 100px;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-top: 20px;
-    }
-    #cartContainer {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-    .itemBox {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      background-color: #fff;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .itemBox img {
-      width: 100px;
-      border-radius: 8px;
-    }
-    .itemBox p {
-      margin: 10px 0;
-    }
-    .removeBtn {
-      background-color: lightcoral;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-    }
-    #totalAmount {
-      text-align: center;
-      font-size: 1.5rem;
-      margin-top: 20px;
-      color: #444;
-    }
-    #buttonContainer {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-    #buttonContainer button {
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-    }
-    .homeBtn {
-      background-color: white;
-      color: #333;
-      border: 1px solid #ccc;
-    }
-    .cancelBtn {
-      background-color: lightcoral;
-      border: none;
-      color: white;
-    }
-    .payBtn {
-      background-color: lightgreen;
-      border: none;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-  <h1>Your Cart</h1>
-  <div id="cartContainer"></div>
-  <h2 id="totalAmount"></h2>
+<html lang="en"><head>
+<title>Itty Bitty Studios - Handmade Treasures</title><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><header><h1 style="font-family: 'Quicksand', cursive; font-size: 2rem;">Itty Bitty Studios</h1><input type="text" class="search-bar" placeholder="Search handmade products..." style="width: 300px; margin-left: 20px;" /> <nav></nav> <a href="index.html">Home</a><a href="about.html">About</a><a href="login.html">Login/Sign-Up</a><a href="cart.html">Cart</a><span>🔔</span></nav></header>
+<main></main><section id="exclusive-sales"><div class="section-title">🌸 Exclusive Sales</div><div class="product-grid"><div class="product-card"><span class="sale-badge">EXCLUSIVE</span><img src="akshara1.jpg" alt="akshara1"><p>shiso - ₹399</p></div><div class="product-card"><span class="sale-badge">EXCLUSIVE</span><img src="akshara2.jpg" alt="akshara2"><p>Sakura whale- ₹399</p></div></div></div></section>
+<section id="best-sellers">
+  <div class="section-title">🌼 Best Sellers</div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="eggie.jpg" alt="eggie">
+      <p>Eggie - ₹599</p>
+    </div>
+    <div class="product-card">
+      <span class="sale-badge">SALE!</span>
+      <img src="dino.jpg" alt="dino">
+      <p>HDino - ₹299</p>
+    </div>
+    <div class="product-card">
+      <img src="sakura_whale.jpg" alt="sakura_whale">
+      <p>Sakura whale- ₹399</p>
+    </div>
+    
+</section>
 
-  <div id="buttonContainer">
-    <button class="homeBtn" onclick="window.location.href='index.html'">Home</button>
-    <button class="cancelBtn" onclick="window.location.href='index.html'">Cancel</button>
-    <button class="payBtn" onclick="window.location.href='payment.html'">Proceed to Payment</button>
+<section id="best-deals">
+  <div class="section-title">🎁 Best Deals & Discounts</div>
+  <div class="product-grid">
+    <div class="product-card">
+      <span class="sale-badge">SALE!</span>
+      <img src="mr_frog.jpg" alt="mr_frog">
+      <p>Mr.frog - ₹499</p>
+    </div>
+    <div class="product-card">
+      <img src="sakura_whale.jpg" alt="sakura_whale">
+      <p>Sakura whale- ₹399</p>
+    </div>
+    <div class="product-card">
+      <img src="pinkpiggy.jpg" alt="pinkpiggy">
+      <p>Pink piggy- ₹399</p>
+    </div>
+    <div class="product-card">
+      <img src="moochoo.jpg" alt="moochoo">
+      <p>Moochoo- ₹399</p>
+    </div>
+    <div class="product-card">
+      <img src="grubby.jpg" alt="grubby">
+      <p>Grubby- ₹399</p>
+    </div>
+      
   </div>
+</section>
 
-  <script>
-    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const cartContainer = document.getElementById('cartContainer');
+<section id="all-products">
+  <div class="section-title">🛍 All Handmade Products</div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="sakura_whale.jpg" alt="sakura_whale">
+      <p>Sakura whale- ₹399</p>
+    </div>
+   <div class="product-card">
+      <img src="grubby.jpg" alt="grubby">
+      <p>Sakura whale- ₹399</p>
+    </div><div class="product-card">
+      <img src="eggie.jpg" alt="eggie">
+      <p>eggie- ₹399</p>
+    </div><div class="product-card">
+      <img src="moochoo.jpg" alt="moochoo">
+      <p>Moochoo- ₹399</p>
+    </div><div class="product-card">
+      <img src="pinkpiggy.jpg" alt="pinkpiggy">
+      <p>Pink piggy- ₹399</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div>Contact us: 9562890922</div><a href="https://www.instagram.com/ittybitty.studios/?__pwa=1#" target="_blank">Instagram</a><div>UPI Payments accepted: aksharacj2002@oksbi</div></footer></body></html><script>document.addEventListener("DOMContentLoaded", () => {const productCards = document.querySelectorAll(".product-card");
+productCards.forEach((card) => {
+  const addToCartButton = document.createElement("button");
+  addToCartButton.textContent = "Add to Cart";
+  addToCartButton.style.backgroundColor = "#77dd77"; // Pastel green
+  addToCartButton.style.color = "white";
+  addToCartButton.style.border = "none";
+  addToCartButton.style.padding = "10px";
+  addToCartButton.style.marginTop = "10px";
+  addToCartButton.style.cursor = "pointer";
 
-    function renderCart() {
-      cartContainer.innerHTML = '';
-      let total = 0;
+  addToCartButton.addEventListener("click", () => {
+   const productImage = card.querySelector("img").src;
+    const productText = card.querySelector("p").textContent; const [name, priceText] = productText.split(" - ₹"); const price = parseInt(priceText.trim());
+const cartItems = JSON.parse(localStorage.getItem("cartItems"))  []; cartItems.push({ image: productImage, name, price }); localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    alert("Item added to cart!");
+  });
 
-      if (cartItems.length === 0) {
-        cartContainer.innerHTML = '<p style="text-align:center;">Your cart is empty. 🌸</p>';
-        document.getElementById("totalAmount").textContent = '';
-        localStorage.setItem("cartTotal", total);
-
-        return;
-      }
-
-      cartItems.forEach((item, index) => {
-        total += item.price;
-
-        const itemBox = document.createElement('div');
-        itemBox.className = 'itemBox';
-
-        const img = document.createElement('img');
-        img.src = item.image;
-        img.alt = item.name;
-
-        const name = document.createElement('p');
-        name.textContent = `${item.name} – ₹${item.price}`;
-
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'removeBtn';
-        removeBtn.textContent = 'Remove from Cart';
-        removeBtn.onclick = () => {
-          cartItems.splice(index, 1);
-          localStorage.setItem('cartItems', JSON.stringify(cartItems));
-          renderCart();
-        };
-
-        itemBox.appendChild(img);
-        itemBox.appendChild(name);
-        itemBox.appendChild(removeBtn);
-        cartContainer.appendChild(itemBox);
-      });
-
-      document.getElementById("totalAmount").textContent = `Total: ₹${total}`;
-     localStorage.setItem("cartTotal", total);}
-   
-    renderCart();
-  </script>
-</body>
-</html>
-
-
+  card.appendChild(addToCartButton);
+});}); </script> )

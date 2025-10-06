@@ -1,148 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart – Itty Bitty Studios</title>
-  <style>
-    body {
-      background-color: #ffe4e1;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      margin: 0;
-      padding-bottom: 100px;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-top: 20px;
-    }
-    #cartContainer {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-    .itemBox {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      background-color: #fff;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .itemBox img {
-      width: 100px;
-      border-radius: 8px;
-    }
-    .itemBox p {
-      margin: 10px 0;
-    }
-    .removeBtn {
-      background-color: lightcoral;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-    }
-    #totalAmount {
-      text-align: center;
-      font-size: 1.5rem;
-      margin-top: 20px;
-      color: #444;
-    }
-    #buttonContainer {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-    #buttonContainer button {
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-    }
-    .homeBtn {
-      background-color: white;
-      color: #333;
-      border: 1px solid #ccc;
-    }
-    .cancelBtn {
-      background-color: lightcoral;
-      border: none;
-      color: white;
-    }
-    .payBtn {
-      background-color: lightgreen;
-      border: none;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-  <h1>Your Cart</h1>
-  <div id="cartContainer"></div>
-  <h2 id="totalAmount"></h2>
 
-  <div id="buttonContainer">
-    <button class="homeBtn" onclick="window.location.href='index.html'">Home</button>
-    <button class="cancelBtn" onclick="window.location.href='index.html'">Cancel</button>
-    <button class="payBtn" onclick="window.location.href='payment.html'">Proceed to Payment</button>
-  </div>
+</html><html><head>
+  
+    <title>Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head><body><h1>Your Cart</h1></body></html>
+<script>
+  // 🌸 Page styling
+  document.body.style.backgroundColor = '#ffe4e1'; // Lighter pastel pink
 
-  <script>
-    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const cartContainer = document.getElementById('cartContainer');
+  const heading = document.querySelector('h1');
+  heading.style.textAlign = 'center';
+  heading.style.fontFamily = '"Comic Sans MS", cursive, sans-serif';
+  heading.style.color = '#333';
 
-    function renderCart() {
-      cartContainer.innerHTML = '';
-      let total = 0;
+  // 🛒 Retrieve cart items
+  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-      if (cartItems.length === 0) {
-        cartContainer.innerHTML = '<p style="text-align:center;">Your cart is empty. 🌸</p>';
-        document.getElementById("totalAmount").textContent = '';
-        localStorage.removeItem("cartTotal"); // Optional: clear total if cart is empty
-        return;
-      }
+  // 🧺 Display cart items
+  const cartContainer = document.createElement('div');
+  cartContainer.style.display = 'grid';
+cartContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(300px, 1fr))';
+cartContainer.style.gap = '20px';
+cartContainer.style.padding = '20px';
+cartContainer.style.justifyContent = 'center';
+  cartContainer.style.marginTop = '30px';
 
-      cartItems.forEach((item, index) => {
-        total += item.price;
+  function renderCart() {
+    cartContainer.innerHTML = '';
 
-        const itemBox = document.createElement('div');
-        itemBox.className = 'itemBox';
-
-        const img = document.createElement('img');
-        img.src = item.image;
-        img.alt = item.name;
-
-        const name = document.createElement('p');
-        name.textContent = `${item.name} – ₹${item.price}`;
-
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'removeBtn';
-        removeBtn.textContent = 'Remove from Cart';
-        removeBtn.onclick = () => {
-          cartItems.splice(index, 1);
-          localStorage.setItem('cartItems', JSON.stringify(cartItems));
-          renderCart();
-        };
-
-        itemBox.appendChild(img);
-        itemBox.appendChild(name);
-        itemBox.appendChild(removeBtn);
-        cartContainer.appendChild(itemBox);
-      });
-
-      document.getElementById("totalAmount").textContent = `Total: ₹${total}`;
-      localStorage.setItem("cartTotal", total); // ✅ Store total for payment page
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+      return;
     }
 
-    renderCart();
-  </script>
-</body>
-</html>
+    cartItems.forEach((item, index) => {
+      const itemBox = document.createElement('div');
+      itemBox.style.border = '1px solid #ccc';
+      itemBox.style.borderRadius = '10px';
+      itemBox.style.padding = '15px';
+      itemBox.style.margin = '10px auto';
+      itemBox.style.width = '300px';
+      itemBox.style.backgroundColor = '#fff';
+      itemBox.style.boxShadow = '2px 2px 10px rgba(0,0,0,0.1)';
+
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.name;
+      img.style.width = '100px';
+      img.style.borderRadius = '8px';
+
+      const name = document.createElement('p');
+      name.textContent = item.name;
+      name.style.fontFamily = '"Comic Sans MS", cursive, sans-serif';
+      name.style.margin = '10px 0';
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove from Cart';
+      removeBtn.style.backgroundColor = 'lightcoral';
+      removeBtn.style.border = 'none';
+      removeBtn.style.padding = '8px 12px';
+      removeBtn.style.borderRadius = '5px';
+      removeBtn.style.cursor = 'pointer';
+      removeBtn.onclick = () => {
+        cartItems.splice(index, 1);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        renderCart();
+      };
+
+      itemBox.appendChild(img);
+      itemBox.appendChild(name);
+      itemBox.appendChild(removeBtn);
+      cartContainer.appendChild(itemBox);
+    });
+  }
+
+  document.body.appendChild(cartContainer);
+  renderCart();
+
+  // 🎀 Bottom buttons
+  const buttonContainer = document.createElement('div');
+  buttonContainer.style.position = 'fixed';
+  buttonContainer.style.bottom = '20px';
+  buttonContainer.style.left = '50%';
+  buttonContainer.style.transform = 'translateX(-50%)';
+  buttonContainer.style.display = 'flex';
+  buttonContainer.style.gap = '10px';
+
+    // 🏠 Add "Home" button
+const homeButton = document.createElement('button');
+homeButton.textContent = 'Home';
+homeButton.style.backgroundColor = 'white';
+homeButton.style.color = '#333';
+homeButton.style.border = '1px solid #ccc';
+homeButton.style.padding = '10px 20px';
+homeButton.style.borderRadius = '5px';
+homeButton.style.cursor = 'pointer';
+homeButton.onclick = () => {
+  window.location.href = 'index.html'; // Redirect to home page
+};
+
+  const cancelButton = document.createElement('button');
+  cancelButton.textContent = 'Cancel';
+  cancelButton.style.backgroundColor = 'lightcoral';
+  cancelButton.style.border = 'none';
+  cancelButton.style.padding = '10px 20px';
+  cancelButton.style.borderRadius = '5px';
+  cancelButton.style.cursor = 'pointer';
+  cancelButton.onclick = () => {
+    window.location.href = 'index.html';
+  };
+
+  const paymentButton = document.createElement('button');
+  paymentButton.textContent = 'Proceed to Payment';
+  paymentButton.style.backgroundColor = 'lightgreen';
+  paymentButton.style.border = 'none';
+  paymentButton.style.padding = '10px 20px';
+  paymentButton.style.borderRadius = '5px';
+  paymentButton.style.cursor = 'pointer';
+  paymentButton.onclick = () => {
+    window.location.href = 'payment.html';
+  };
+
+  buttonContainer.appendChild(homeButton);
+  buttonContainer.appendChild(cancelButton);
+  buttonContainer.appendChild(paymentButton);
+  document.body.appendChild(buttonContainer);
+</script>

@@ -134,16 +134,14 @@
       addToCartButton.style.cursor = "pointer";
 
       addToCartButton.addEventListener("click", () => {
-        const productImage = card.querySelector("img").src;
-        const productText = card.querySelector("p").textContent;
+       const productImage = card.querySelector("img").src;
+const productText = card.querySelector("p").textContent;
 const [name, priceText] = productText.split(" - ₹");
 const price = parseInt(priceText.trim());
 
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 cartItems.push({ image: productImage, name, price });
-
-        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        cartItems.push({ image: productImage, name: productName });
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
         alert("Item added to cart!");
       });

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f8f0ff; /* Pastel lavender background */
+            font-family: Arial, sans-serif;
+            text-align: center; /* Center-aligns all text */
+        }
+        h1 {
+            color: #5a5a5a;
+        }
+        p {
+            color: #333;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Pay via UPI</h1>
+    <p>Scan the QR code below to make a payment:</p>
+    <img src="itty_bitty/image/qr.jpg" alt="QR Code" class="center-image" />
+
+
+</body><script> // 🎀 Bottom buttons
+  const buttonContainer = document.createElement('div');
+  buttonContainer.style.position = 'fixed';
+  buttonContainer.style.bottom = '20px';
+  buttonContainer.style.left = '50%';
+  buttonContainer.style.transform = 'translateX(-50%)';
+  buttonContainer.style.display = 'flex';
+  buttonContainer.style.gap = '10px';
+
+    // 🏠 Add "Home" button
+const homeButton = document.createElement('button');
+homeButton.textContent = 'Home';
+homeButton.style.backgroundColor = 'white';
+homeButton.style.color = '#333';
+homeButton.style.border = '1px solid #ccc';
+homeButton.style.padding = '10px 20px';
+homeButton.style.borderRadius = '5px';
+homeButton.style.cursor = 'pointer';
+homeButton.onclick = () => {
+  window.location.href = 'index.html'; // Redirect to home page
+};
+  buttonContainer.appendChild(homeButton);
+  document.body.appendChild(buttonContainer);
+  
+
+
+
+</script>
+</html>

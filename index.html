@@ -135,7 +135,11 @@
 
       addToCartButton.addEventListener("click", () => {
         const productImage = card.querySelector("img").src;
-        const productName = card.querySelector("p").textContent;
+        const productText = card.querySelector("p").textContent;
+const [name, priceText] = productText.split(" - ₹");
+const price = parseInt(priceText.trim());
+
+cartItems.push({ image: productImage, name, price });
 
         const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         cartItems.push({ image: productImage, name: productName });

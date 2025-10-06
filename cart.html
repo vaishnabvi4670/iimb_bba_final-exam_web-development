@@ -139,8 +139,9 @@
 
       document.getElementById("totalAmount").textContent = `Total: ₹${total}`;
     }
-
+     localStorage.setItem("cartTotal", total);
     renderCart();
   </script>
 </body>
 </html>
+

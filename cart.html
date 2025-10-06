@@ -106,6 +106,8 @@
       if (cartItems.length === 0) {
         cartContainer.innerHTML = '<p style="text-align:center;">Your cart is empty. 🌸</p>';
         document.getElementById("totalAmount").textContent = '';
+        localStorage.setItem("cartTotal", total);
+
         return;
       }
 
@@ -138,10 +140,11 @@
       });
 
       document.getElementById("totalAmount").textContent = `Total: ₹${total}`;
-    }
-     localStorage.setItem("cartTotal", total);
+     localStorage.setItem("cartTotal", total);}
+   
     renderCart();
   </script>
 </body>
 </html>
+
 
